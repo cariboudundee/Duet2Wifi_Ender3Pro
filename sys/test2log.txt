@@ -1,0 +1,7 @@
+power up + 00:00:23 Event logging started
+power up + 00:00:29 Event logging stopped
+power up + 00:00:29 Event logging started
+power up + 00:00:31 Event logging stopped
+power up + 00:00:31 Event logging started
+2020-08-15 15:21:45 Event logging started
+2020-08-15 15:22:16 Event logging stopped

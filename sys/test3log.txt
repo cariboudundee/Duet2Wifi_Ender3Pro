@@ -1,0 +1,5 @@
+2020-08-15 15:22:16 Event logging started
+2020-08-15 15:22:16 Error: Heater 2 not found
+2020-08-15 15:22:16 Error: Tool creation: bad drive number
+2020-08-15 15:22:26 Error: Attempt to set/report offsets and temperatures for non-existent tool: 2
+2020-08-15 15:23:46 Warning: VIN under-voltage event (9.4V)
