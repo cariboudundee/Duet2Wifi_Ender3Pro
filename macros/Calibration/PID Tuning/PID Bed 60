@@ -1,0 +1,12 @@
+; 0:/macros/PID Tuning/PID Tune Hot End 220
+; Based on https://duet3d.dozuki.com/Wiki/Tuning_the_heater_temperature_control
+;
+
+M291 S3 R"PID Tuning Bed to 60c" P"Do not interrupt or leave unattended while tuning in progress."
+
+M303 H0 S60 		 ; auto tune heater 0, default PWM, 60C target or maximum temperature
+
+M400
+
+M307 H1			    ; report values for heater 1
+M500		    	; Save values to config-override.g

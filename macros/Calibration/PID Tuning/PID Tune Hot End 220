@@ -1,0 +1,9 @@
+; 0:/macros/PID Tuning/PID Tune Hot End 220
+; Based on https://duet3d.dozuki.com/Wiki/Tuning_the_heater_temperature_control
+;
+
+M291 S3 R"PID Tuning Hotend to 220c" P"Do not interrupt or leave unattended while tuning in progress."
+
+M106 P0 S1		; set part fan to 50%
+M303 H1 S200 		; auto tune heater 1, default PWM, 200C target or maximum temperature
+

@@ -20,8 +20,8 @@ M561			; Disable any current bed compensation
 ; Heat up bed and nozzle to PLA temps in prep for filament removal and probing
 ;
 M291 P"Bed and nozzle will preheat and home all axis." R"Preheat and Home" S3 T0 ; User must click OK or cancel
-M104 S130		; Set nozzle to 130 and release
-M140 S55		; Set bed to 55 and release
+M104 S190		; Set nozzle to 190 and release
+M140 S60		; Set bed to 60 and release
 
 ; home all axis
 ;
@@ -156,7 +156,7 @@ M291 P"The bed has been mechanically leveled and Z0 set." S2
 ; 
 M104 S0		; Set nozzle to 0 and release
 M140 S0		; Set bed to 0 and release
-M913 Z85	; Return Z motor current to normal
+M913 Z100	; Return Z motor current to normal
 G28 XY		; Home XY
 
 ; Tone to get user attention
