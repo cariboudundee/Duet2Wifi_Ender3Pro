@@ -27,8 +27,8 @@ M569 P4 S1                                              ; physical drive 4 goes 
 M584 X0 Y1 Z2 E4                                        ; set drive mapping
 M350 X16 Y16 Z16 E16 I1                                 ; configure microstepping with interpolation
 M92 X80 Y80 Z1600 E130                                  ; set steps per mm
-M566 X400 Y400 Z20 E500 P1                              ; set maximum instantaneous speed changes (mm/min)
-M203 X15000 Y15000 Z650 E3000                           ; set maximum speeds (mm/min)
+M566 X600 Y600 Z24 E300 P1                              ; set maximum instantaneous speed changes (mm/min)
+M203 X30000 Y30000 Z650 E3000                           ; set maximum speeds (mm/min)
 M201 X2500 Y2500 Z40 E4000                              ; set accelerations (mm/s^2)
 M204 P600 T1600						                    ; Set accelerations (mm/s^2) for print and travel moves
 M906 X1200 Y1200 Z1400 E1300 I30                        ; set motor currents (mA) and motor idle factor in per cent
@@ -74,11 +74,11 @@ M308 S0 P"bedtemp" Y"thermistor" T98801 B4185 A"Lit"         ; configure sensor 
 M950 H0 C"bedheat" T0                                        ; create bed heater output on bedheat and map it to sensor 0
 M307 H0 B0 S1.00                                             ; disable bang-bang mode for the bed heater and set PWM limit
 M140 H0                                                      ; map heated bed to heater 0
-M143 H0 S120                                                 ; set temperature limit for heater 0 to 120C
+M143 H0 S125                                                 ; set temperature limit for heater 0 to 120C
 M308 S1 P"spi.cs1" Y"rtd-max31865" A"Tête"                   ; create sensor number 1 as a PT100 sensor in the first position on the Duet 2 daughter board connector
 M950 H1 C"e0heat" T1                                         ; create nozzle heater output on e0heat and map it to sensor 1
 M307 H1 B0 S1.00                                             ; disable bang-bang mode for heater  and set PWM limit
-M143 H1 S270	        	  			                     ; Set temperature limit for heater 1 to 270C
+M143 H1 S275	        	  			                     ; Set temperature limit for heater 1 to 270C
 M308 S2 P"spi.cs2" Y"rtd-max31865" A"Boitier"                ; configure sensor 2 as thermistor on pin e1temp
 ;M950 H2 C"e1heat" T2                                        ; create chamber heater output on e1heat and map it to sensor 2
 ;M307 H2 B1 S1.00                                            ; enable bang-bang mode for the chamber heater and set PWM limit
