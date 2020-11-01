@@ -25,13 +25,18 @@ M569 P1 S1                                              ; physical drive 1 goes 
 M569 P2 S0                                              ; physical drive 2 goes forwards
 M569 P4 S1                                              ; physical drive 4 goes forwards
 M584 X0 Y1 Z2 E4                                        ; set drive mapping
-M350 X16 Y16 Z16 E16 I1                                 ; configure microstepping with interpolation
-M92 X80 Y80 Z1600 E130                                  ; set steps per mm
-M566 X480 Y480 Z18 E300 P1                              ; set maximum instantaneous speed changes (mm/min)
-M203 X18000 Y18000 Z600 E2400                           ; set maximum speeds (mm/min)
-M201 X1800 Y1800 Z60 E4000                              ; set accelerations (mm/s^2)
-M204 P600 T1500						                    ; Set accelerations (mm/s^2) for print and travel moves
-M906 X1200 Y1200 Z1400 E1300 I30                        ; set motor currents (mA) and motor idle factor in per cent
+;M350 X16 Y16 Z16 E16 I1                                ; configure microstepping with interpolation (original)
+M350 X32 Y32 E128 I1					                ; Set steps per mm for the extruder to x128 (776 steps per mm) and X and Y to x32 (160 steps per mm)
+M92 X80 Y80 Z1600 E129                                  ; set steps per mm (original)
+;M566 X800 Y800 Z18 E800 P1                             ; set maximum instantaneous speed changes (mm/min) (original)
+M566 X800 Y800 Z60 E3000 P1			            	    ; Set maximum instantaneous speed changes (mm/min)
+;M203 X18000 Y18000 Z600 E2400                          ; set maximum speeds (mm/min) (original)
+M203 X12000 Y12000 Z900 E6000				            ; Set maximum speeds (mm/min)
+;M201 X1800 Y1800 Z60 E4000                             ; set accelerations (mm/s^2) (original)
+M201 X6000 Y6000 Z200 E5000				                ; Set accelerations (mm/s^2)
+;M204 P800 T1500						                ; Set accelerations (mm/s^2) for print and travel moves (original)
+M204 P600 T2000						                    ; Set accelerations (mm/s^2) for print and travel moves
+M906 X1000 Y1000 Z1300 E1300 I30                        ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                                 ; Set idle timeout
 
 ; =====================================================================================================================
@@ -98,7 +103,7 @@ M106 P0 C"Hotend Cooling" S1 H1 T45                     ; set fan 0 name and val
 M950 F1 C"fan0" Q100                                    ; create fan 1 on pin fan1 and set its frequency
 M106 P1 C"Parts Cooling" S0 H-1                         ; set fan 1 name and value. Thermostatic control is turned off
 M950 F2 C"fan2" Q100                                    ; create fan 2 on pin fan2 and set its frequency
-M106 P2 C"Motherboard Cooling" S2 H1 T40                ; set fan 2 name and value. Thermostatic control is turned on
+M106 P2 C"Motherboard Cooling" S1 H1 T40               ; set fan 2 name and value. Thermostatic control is turned on
 M950 F3 C"duex.fan3" Q250                               ; create fan 3 on pin fan2 and set its frequency
 M106 P3 C"Driver Cooling" S0 H-1                        ; set fan 3 name and value. Thermostatic control is turned off
 M950 P0 C"e1heat" Q500                                  ; create output 0 on pin e1heat for use in daemon.g ( go on when printer print )
@@ -113,7 +118,7 @@ G10 P0 R0 S0                                            ; set initial tool 0 act
 ; =====================================================================================================================
 ; Pressure Advance
 ; =====================================================================================================================
-M572 D0 S0.18						                    ; set pressure advance to 0.18
+M572 D0 S0.10						                    ; set pressure advance to 0.18
 
 ; =====================================================================================================================
 ; Retraction
@@ -156,5 +161,5 @@ T0                                                      ; select first tool
 ; Startup Tune
 ; =====================================================================================================================
 G4 S10
-M98 P"0:/macros/Musical Tunes/Startup.g"
+
 
