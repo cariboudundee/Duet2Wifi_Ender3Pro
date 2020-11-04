@@ -1,2 +1,0 @@
-G90		; Absolute
-g1 Z0		; move to Z0

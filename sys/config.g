@@ -6,8 +6,9 @@
 ; =====================================================================================================================
 G90                                                      ; send absolute coordinates...
 M83                                                      ; ...but relative extruder moves
-M550 P"Ender 3 Pro"                                      ; set printer name
-M918 P1 E4 F2000000                                      ; configure direct-connect display
+M550 P"ender"                                            ; set printer name
+;M551 P"ender"                                	       	; Set password
+;M918 P1 E4 F2000000                                     ; configure direct-connect display
 
 ; =====================================================================================================================
 ; Network
@@ -25,17 +26,12 @@ M569 P1 S1                                              ; physical drive 1 goes 
 M569 P2 S0                                              ; physical drive 2 goes forwards
 M569 P4 S1                                              ; physical drive 4 goes forwards
 M584 X0 Y1 Z2 E4                                        ; set drive mapping
-;M350 X16 Y16 Z16 E16 I1                                ; configure microstepping with interpolation (original)
-M350 X32 Y32 E128 I1					                ; Set steps per mm for the extruder to x128 (776 steps per mm) and X and Y to x32 (160 steps per mm)
+M350 X16 Y16 Z16 E16 I1                                 ; configure microstepping with interpolation (original)
 M92 X80 Y80 Z1600 E129                                  ; set steps per mm (original)
-;M566 X800 Y800 Z18 E800 P1                             ; set maximum instantaneous speed changes (mm/min) (original)
-M566 X800 Y800 Z60 E3000 P1			            	    ; Set maximum instantaneous speed changes (mm/min)
-;M203 X18000 Y18000 Z600 E2400                          ; set maximum speeds (mm/min) (original)
-M203 X12000 Y12000 Z900 E6000				            ; Set maximum speeds (mm/min)
-;M201 X1800 Y1800 Z60 E4000                             ; set accelerations (mm/s^2) (original)
-M201 X6000 Y6000 Z200 E5000				                ; Set accelerations (mm/s^2)
-;M204 P800 T1500						                ; Set accelerations (mm/s^2) for print and travel moves (original)
-M204 P600 T2000						                    ; Set accelerations (mm/s^2) for print and travel moves
+M566 X1000 Y1000 Z20 E3000 P1			           	    ; Set maximum instantaneous speed changes (mm/min)
+M203 X12000 Y12000 Z900 E8000				            ; Set maximum speeds (mm/min)
+M201 X1800 Y1800 Z60 E4000                              ; set accelerations (mm/s^2) (original)
+M204 P600 T1200						                    ; Set accelerations (mm/s^2) for print and travel moves
 M906 X1000 Y1000 Z1300 E1300 I30                        ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                                 ; Set idle timeout
 
@@ -118,7 +114,7 @@ G10 P0 R0 S0                                            ; set initial tool 0 act
 ; =====================================================================================================================
 ; Pressure Advance
 ; =====================================================================================================================
-M572 D0 S0.10						                    ; set pressure advance to 0.18
+M572 D0 S0.10						                    ; set pressure advance to 0.10
 
 ; =====================================================================================================================
 ; Retraction
@@ -146,20 +142,16 @@ M207 S2 R0.0 F2200 T2200 Z0.4                           ; set retractation to 3m
 ; =====================================================================================================================
 ; Custom settings
 ; =====================================================================================================================
-M912 P0 S-10					                        ; CPU temperature calibration
+M912 P0 S-2					                        ; CPU temperature calibration
 M911 S20 R21 P"M913 X0 Y0 G91 M83 G1 Z3 E-5 F1000"      ; set voltage thresholds and actions to run on power loss
 
 ; =====================================================================================================================
 ; Miscellaneous
 ; =====================================================================================================================
-M575 P1 S1 B57600                                       ; enable support for PanelDue
 M501                                                    ; load saved parameters from non-volatile memory
 T0                                                      ; select first tool
 
 
-; =====================================================================================================================
-; Startup Tune
-; =====================================================================================================================
-G4 S10
+
 
 

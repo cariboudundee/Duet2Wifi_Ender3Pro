@@ -1,3 +1,5 @@
-G90			; Absolute
+if !move.axes[0].homed || !move.axes[1].homed || !move.axes[2].homed
+ G28 XYZ
+G90			    ; Absolute
 G1 Z10			; Lower bed 10mm
 G30 S-1 		; Do a probe and don't reset z height to get trigger height of probe.

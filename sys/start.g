@@ -14,12 +14,12 @@ if !move.axes[0].homed || !move.axes[1].homed || !move.axes[2].homed
 M400                                                        ; Wait for current moves to finish
 G29 S0                                                      ; Probe the bed, save height map to heightmap.csv and enable compensation
 M400                                                        ; Wait for current moves to finish
-G1 Z2.0 F3000                                               ; Move Z Axis up little to prevent scratching of Heat Bed
-G1 X10 Y10 Z0.2 F5000.0                                     ; Move to start position
-G1 X200 Y10 Z0.2 F1500.0 E30                                ; Draw the first line
-G1 X200 Y13 Z0.2 F5000.0                                    ; Move to side a little
-G1 X10 Y13 Z0.2 F1500.0 E30                                 ; Draw the second line
+G1 Z5.0 F3000                                               ; Move Z Axis up little to prevent scratching of Heat Bed
+G1 X10 Y10 Z0.3 F5000.0                                     ; Move to start position
+G1 X200 Y10 Z0.3 F1600.0 E35                                ; Draw the first line
+G1 X200 Y13 Z0.3 F5000.0                                    ; Move to side a little
+G1 X10 Y13 Z0.3 F1600.0 E35                                 ; Draw the second line
 G92 E0                                                      ; Reset Extruder
-G1 Z15.0 F3000                                              ; Move Z Axis up little to prevent scratching of Heat Bed
+G1 Z15.0 F3500                                              ; Move Z Axis up little to prevent scratching of Heat Bed
 G1 E-2                                                      ; Retract 2mm
 ; Slicer Start Gcode begins.

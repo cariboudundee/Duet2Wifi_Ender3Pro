@@ -1,0 +1,4 @@
+if !move.axes[0].homed || !move.axes[1].homed || !move.axes[2].homed
+ G28 XYZ
+G90
+G1 X200 Y67 Z5
